@@ -28,10 +28,11 @@ def question_user():
     Question = "Question: " + str(random_number) + "\n"
     print(Question, end='')
     user_answer = prompt.string('Your answer: ')
-    print(user_answer)
     correct_answer = 0
     winscore = 3
-    while correct_answer < winscore:
+    while correct_answer < winscore - 1:
+        print(Question, end='')
+        user_answer = prompt.string('Your answer: ')
         if is_even() == True and user_answer == "yes" or (is_even() == False and user_answer == "no"):
             print("Correct") 
             correct_answer += 1

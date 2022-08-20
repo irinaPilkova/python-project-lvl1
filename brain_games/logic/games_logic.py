@@ -3,6 +3,7 @@
 from random import randint
 from random import choice
 import prompt
+import string
 
 def greet():
     """This function welcomes User to the Game."""
@@ -61,7 +62,37 @@ def calc_question():
         calc_question.correct_answer = num_1 * num_2
         return calc_question.user_answer, calc_question.correct_answer
 
+
 def gcd_question():
     Question = f'Question: {num_1}  {num_2}' + "\n"
     print(Question, end='')
     gcd_question.user_answer = prompt.string('Your answer: ')
+    if num_1 == 0:
+        return num_1
+    if num_2 == 1 or num_2 ==1:
+        return 1
+    return gcd_question(num_2, num_1%num_2)
+    if gcd_question.user_answer == gcd_question(num_2, num_1%num_2):
+        print(True)
+    else:
+        print(False)
+
+
+def progression_question():
+    num = randint(2, 6)
+    i_replace = randint(0, 10)
+    progression = [(i * num) for i in range(1, 11)]
+    progression_question.correct_answer = progression[i_replace] 
+    progression[i_replace] = '..'
+    Question = f'Question: {progression}' + "\n"
+    print(Question, end='')
+    print(progression_question.correct_answer )
+    progression_question.user_answer = prompt.string('Your answer: ')
+    if str(progression_question.correct_answer) == progression_question.user_answer:
+        print(True)
+        return True
+    else:
+        print(False)
+        return False
+    
+    

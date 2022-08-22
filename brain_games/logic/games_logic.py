@@ -4,6 +4,7 @@ from random import randint
 from random import choice
 import prompt
 import string
+from brain_games.cli import welcome_user
 
 
 def greet():
@@ -15,6 +16,21 @@ lower_limit = 1
 upper_limit = 100
 
 
+def get_answer(user_answer, correct_answer, name):
+    """This function compares user and correct answer."""
+    counter = 0
+    winscore = 3
+    while counter < winscore:
+        if user_answer == correct_answer:
+            print('Correct!')
+            counter += 1
+        elif user_answer != correct_answer:
+            print(f" '{user_answer}' is wrong answer ;(. Correct answer was '{correct_answer}'.\n Let's try again, {name}!")
+            break
+    if counter == 3:
+        print(f"Congratulations,{name}!")
+
+
 def create_number():
     """This function creates random number."""
     create_number.random_number = randint(lower_limit, upper_limit)
@@ -24,9 +40,10 @@ def create_number():
 def is_even():
     """This function returns if the random number is even or not."""
     if create_number.random_number % 2 == 0:
-        return True
+        correct_answer = "yes"
     else:
-        return False
+        correct_answer = "no"
+    return correct_answer
 
 
 def even_question():
@@ -35,7 +52,9 @@ def even_question():
     Question = f'Question: {create_number.random_number}' + "\n"
     print(Question, end='')
     user_answer = prompt.string('Your answer: ')
-    if (is_even() is True and user_answer == "yes") or (is_even() is False and user_answer == "no"):
+    is_even()
+    correct_answer = is_even(correct_answer)
+    if (correct_answer == "yes" and user_answer == "yes") or (correct_answer == "no" and user_answer == "no"):
         return True
     else:
         return False

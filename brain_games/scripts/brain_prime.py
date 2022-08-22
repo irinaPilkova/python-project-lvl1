@@ -9,15 +9,15 @@ from brain_games.logic.games_logic import prime_question
 def game_prime():
     name = welcome_user()
     counter = 0
-    winscore = 2
+    winscore = 3
     print('Answer "yes" if given number is prime. Otherwise answer "no".')
-    while counter <= winscore:
-        if prime_question() is False:
-            print(f" '{prime_question.user_answer}' is wrong answer ;(. Correct answer was '{prime_question.correct_answer}'.\n Let's try again, {name}!")
-            break
-        elif prime_question() is True:
+    while counter < winscore:
+        if prime_question():
             print('Correct!')
             counter += 1
+        elif not prime_question():
+            print(f" '{prime_question.user_answer}' is wrong answer ;(. Correct answer was '{prime_question.correct_answer}'.\n Let's try again, {name}!")
+            break
     if counter == 3:
         print(f"Congratulations,{name}!")
 

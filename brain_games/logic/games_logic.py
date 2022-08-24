@@ -12,6 +12,8 @@ from brain_games.games.prime_game import prime_question
 from brain_games.games.prime_game import is_prime
 from brain_games.games.calc_game import calc_question
 from brain_games.games.calc_game import calc_answer
+from brain_games.games.progression_game import progres_question
+from brain_games.games.progression_game import progres_answer
 
 
 def greet():
@@ -29,7 +31,6 @@ def create_number():
     return random_number
 
 
-
 def get_user_answer(question):
     print(question, end='')
     user_answer = prompt.string('Your answer: ')
@@ -38,6 +39,7 @@ def get_user_answer(question):
 
 counter = 0
 winscore = 3
+
 
 def compare_answer(user_answer, correct_answer, name):
     """This function compares user and correct answer."""
@@ -84,8 +86,10 @@ def brain_prime():
         if counter == 3:
             print(f"Congratulations, {name}!")
 
+
 operand_list = ['+']
 operand = choice(operand_list)
+
 
 def calculation_question():
     """This function starts game for brain calc."""
@@ -108,6 +112,26 @@ def calculation_question():
             print(f"Congratulations, {name}!")
 
 
+def progression_question():
+    """This function starts game for brain progression."""
+    name = welcome_user()
+    print('What number is missing in the progression?')
+    global counter
+    while counter < winscore:
+        question = progres_question()
+        user_answer = get_user_answer(question)
+        
+        correct_answer = progres_answer(i_replace, progression)
+        compare_answer(user_answer, correct_answer, name)
+        counter += 1
+        if user_answer != correct_answer:
+            break
+        if counter == 3:
+            print(f"Congratulations, {name}!")
+
+     
+
+
 def gcd_question():
     Question = f'Question: {num_1}  {num_2}' + "\n"
     print(Question, end='')
@@ -123,20 +147,5 @@ def gcd_question():
         print(False)
 
 
-def progression_question():
-    num = randint(2, 6)
-    i_replace = randint(0, 10)
-    progression = [(i * num) for i in range(1, 11)]
-    progression_question.correct_answer = progression[i_replace]
-    progression[i_replace] = '..'
-    Question = f'Question: {progression}' + "\n"
-    print(Question, end='')
-    print(progression_question.correct_answer)
-    progression_question.user_answer = prompt.string('Your answer: ')
-    if str(progression_question.correct_answer) == progression_question.user_answer:
-        print(True)
-        return True
-    else:
-        print(False)
-        return False
+
  

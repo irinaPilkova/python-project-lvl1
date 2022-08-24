@@ -1,26 +1,17 @@
-from brain_games.cli import welcome_user
+#!/usr/bin/env python3
+
+
 from brain_games.scripts.brain_games import greet
-from brain_games.logic.games_logic import even_question
+from brain_games.logic.games_logic import brain_even
 
 
-def game_even():
-    counter = 0
-    winscore = 2
-    name = welcome_user()
-    print('Answer "yes" if the number is even, otherwise answer "no".')
-    while counter <= winscore:
-        if even_question() is False:
-            print(f'Let\'s try again, {name}!')
-            break
-        elif even_question() is True:
-            print("Correct")
-            counter += 1
-    if counter == 3:
-        print(f"Congratulations, {name}!")
+def game_result():
+    brain_even()
+    
 
 
 def main():
     greet()
-    game_even()
+    game_result()
     if __name__ == '__main__':
         main()

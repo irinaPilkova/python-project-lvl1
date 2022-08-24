@@ -1,10 +1,17 @@
 #!/usr/bin/env python3
 
+
 from random import randint
 from random import choice
 import prompt
 import string
 from brain_games.cli import welcome_user
+from brain_games.games.even_game import even_question
+from brain_games.games.even_game import is_even
+from brain_games.games.prime_game import prime_question
+from brain_games.games.prime_game import is_prime
+from brain_games.games.calc_game import calc_question
+from brain_games.games.calc_game import calc_answer
 
 
 def greet():
@@ -16,75 +23,89 @@ lower_limit = 1
 upper_limit = 100
 
 
-def get_answer(user_answer, correct_answer, name):
-    """This function compares user and correct answer."""
-    counter = 0
-    winscore = 3
-    while counter < winscore:
-        if user_answer == correct_answer:
-            print('Correct!')
-            counter += 1
-        elif user_answer != correct_answer:
-            print(f" '{user_answer}' is wrong answer ;(. Correct answer was '{correct_answer}'.\n Let's try again, {name}!")
-            break
-    if counter == 3:
-        print(f"Congratulations,{name}!")
-
-
 def create_number():
     """This function creates random number."""
-    create_number.random_number = randint(lower_limit, upper_limit)
-    return create_number.random_number
+    random_number = randint(lower_limit, upper_limit)
+    return random_number
 
 
-def is_even():
-    """This function returns if the random number is even or not."""
-    if create_number.random_number % 2 == 0:
-        correct_answer = "yes"
-    else:
-        correct_answer = "no"
-    return correct_answer
 
-
-def even_question():
-    """This function asks if the number is even or not and returns correspodingly if he is correct or not."""
-    create_number()
-    Question = f'Question: {create_number.random_number}' + "\n"
-    print(Question, end='')
+def get_user_answer(question):
+    print(question, end='')
     user_answer = prompt.string('Your answer: ')
-    is_even()
-    correct_answer = is_even(correct_answer)
-    if (correct_answer == "yes" and user_answer == "yes") or (correct_answer == "no" and user_answer == "no"):
-        return True
-    else:
-        return False
+    return user_answer
 
 
-num_1 = create_number()
-num_2 = create_number()
-operand_list = ['+', '-', '*']
+counter = 0
+winscore = 3
+
+def compare_answer(user_answer, correct_answer, name):
+    """This function compares user and correct answer."""
+    if user_answer != correct_answer:
+        print(f" '{user_answer}' is wrong answer ;(. Correct answer was '{correct_answer}'.\n Let's try again, {name}!")
+
+    elif user_answer == correct_answer:
+        print('Correct!')
+        print(f" '{user_answer}' is right answer ;(. Correct answer was '{correct_answer}'.\n Let's try again, {name}!")
+
+        
+def brain_even():
+    """This function starts game for brain even."""
+    name = welcome_user()
+    print('Answer "yes" if the number is even, otherwise answer "no".')
+    global counter
+    while counter < winscore:
+        random_number = create_number()
+        question = even_question(random_number)
+        user_answer = get_user_answer(question)
+        correct_answer = is_even(random_number)
+        compare_answer(user_answer, correct_answer, name, random_number)
+        counter += 1
+        if user_answer != correct_answer:
+            break
+        if counter == 3:
+            print(f"Congratulations, {name}!")
 
 
-def calc_question():
-    operand = choice(operand_list)
-    if operand == '+':
-        Question = f'Question: {num_1} + {num_2}' + "\n"
-        print(Question, end='')
-        calc_question.user_answer = prompt.string('Your answer: ')
-        calc_question.correct_answer = num_1 + num_2
-        return calc_question.user_answer, calc_question.correct_answer
-    elif operand == '-':
-        Question = f'Question: {num_1} - {num_2}' + "\n"
-        print(Question, end='')
-        calc_question.user_answer = prompt.string('Your answer: ')
-        calc_question.correct_answer = num_1 - num_2
-        return calc_question.user_answer, calc_question.correct_answer
-    elif operand == '*':
-        Question = f'Question: {num_1} * {num_2}' + "\n"
-        print(Question, end='')
-        calc_question.user_answer = prompt.string('Your answer: ')
-        calc_question.correct_answer = num_1 * num_2
-        return calc_question.user_answer, calc_question.correct_answer
+def brain_prime():
+    """This function starts game for brain prime."""
+    name = welcome_user()
+    print('Answer "yes" if given number is prime. Otherwise answer "no".')
+    global counter
+    while counter < winscore:
+        random_number = create_number()
+        question = prime_question(random_number)
+        user_answer = get_user_answer(question)
+        correct_answer = is_prime(random_number)
+        compare_answer(user_answer, correct_answer, name, random_number)
+        counter += 1
+        if user_answer != correct_answer:
+            break
+        if counter == 3:
+            print(f"Congratulations, {name}!")
+
+operand_list = ['+']
+operand = choice(operand_list)
+
+def calculation_question():
+    """This function starts game for brain calc."""
+    name = welcome_user()
+    print('What is the result of the expression?')
+    global counter
+    global operand_list
+    while counter < winscore:
+        num_1 = create_number()
+        num_2 = create_number()
+        operand = choice(operand_list)
+        question = calc_question(num_1, num_2, operand)
+        user_answer = get_user_answer(question)
+        correct_answer = calc_answer(operand, num_1, num_2)
+        compare_answer(user_answer, correct_answer, name)
+        counter += 1
+        if user_answer != correct_answer:
+            break
+        if counter == 3:
+            print(f"Congratulations, {name}!")
 
 
 def gcd_question():
@@ -118,33 +139,4 @@ def progression_question():
     else:
         print(False)
         return False
-
-
-def is_prime():
-    """This function returns if the random number is prime or not."""
-    for i in range(2, create_number.random_number):
-        if create_number.random_number % i == 0:
-            return False
-            break
-    else:
-        return True
-
-
-def prime_question():
-    create_number()
-    Question = f'Question: {create_number.random_number}' + "\n"
-    print(Question, end='')
-    prime_question.user_answer = prompt.string('Your answer: ')
-    if is_prime() is True and prime_question.user_answer == "yes": 
-        prime_question.correct_answer = "yes"
-        print(True)
-        return True
-    elif is_prime() is False and prime_question.user_answer == "no":
-        prime_question.correct_answer = "no"
-        print(True)
-        return True
-    else:
-        prime_question.correct_answer = "no"
-        print(False)
-        return False
-    
+ 

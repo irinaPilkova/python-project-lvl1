@@ -6,3 +6,7 @@
 
 ### Asciinema:
 "https://asciinema.org/connect/51a32a1c-2412-4cda-b2b0-6930e0def8dd"
+"https://asciinema.org/a/GH1aDVWXVgFEKhpMDoo9UwALS"
+"https://asciinema.org/a/d0dvlwGrOfdL0PSEeN6PkIhHI"
+"https://asciinema.org/a/xVHx1mcqWvm5Rr985S4Oosmq0"
+"https://asciinema.org/a/NY5GqXFWPgsQ5GqbzWrtmrlJf"

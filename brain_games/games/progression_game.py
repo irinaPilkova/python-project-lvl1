@@ -10,7 +10,7 @@ def progres_question():
     i_replace = randint(2, 9)
     progression = [(i * num) for i in range(1, 11)]
     correct_answer = progression[i_replace]
-    progression[i_replace]= '..'
+    progression[i_replace] = '..'
     progression = [str(a) for a in progression]
     progression = " ".join(progression)
     question = f'Question: {progression}' + "\n"

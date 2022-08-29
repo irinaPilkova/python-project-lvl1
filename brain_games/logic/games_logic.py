@@ -14,6 +14,8 @@ from brain_games.games.calc_game import calc_question
 from brain_games.games.calc_game import calc_answer
 from brain_games.games.progression_game import progres_question
 from brain_games.games.progression_game import progres_answer
+from brain_games.games.gcd_game import gcd_question
+from brain_games.games.gcd_game import gcd_answer
 
 
 def greet():
@@ -117,11 +119,10 @@ def progression_question():
     name = welcome_user()
     print('What number is missing in the progression?')
     global counter
+    
     while counter < winscore:
-        question = progres_question()
+        question, correct_answer = progres_question()
         user_answer = get_user_answer(question)
-        
-        correct_answer = progres_answer(i_replace, progression)
         compare_answer(user_answer, correct_answer, name)
         counter += 1
         if user_answer != correct_answer:
@@ -132,19 +133,26 @@ def progression_question():
      
 
 
-def gcd_question():
-    Question = f'Question: {num_1}  {num_2}' + "\n"
-    print(Question, end='')
-    gcd_question.user_answer = prompt.string('Your answer: ')
-    if num_1 == 0:
-        return num_1
-    if num_2 == 1 or num_2 == 1:
-        return 1
-    return gcd_question(num_2, num_1%num_2)
-    if gcd_question.user_answer == gcd_question(num_2, num_1%num_2):
-        print(True)
-    else:
-        print(False)
+def brain_gcd():
+    """This function starts game for gcd."""
+    name = welcome_user()
+    print('Find the greatest common divisor of given numbers.')
+    global counter
+    while counter < winscore:
+        num_1 = create_number()
+        num_2 = create_number()
+        question = gcd_question(num_1, num_2)
+        user_answer = get_user_answer(question)
+        correct_answer = gcd_answer(num_1, num_2)
+        compare_answer(user_answer, correct_answer, name)
+        counter += 1
+        if user_answer != correct_answer:
+            break
+        if counter == 3:
+            print(f"Congratulations, {name}!")
+    
+
+    
 
 
 

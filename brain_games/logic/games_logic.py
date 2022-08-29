@@ -44,7 +44,9 @@ winscore = 3
 def compare_answer(user_answer, correct_answer, name):
     """This function compares user and correct answer."""
     if user_answer != correct_answer:
-        print(f"'{user_answer}' is wrong answer ;(. Correct answer was '{correct_answer}'.\n Let's try again, {name}!")
+        print(f"'{user_answer}' is wrong answer ;(.")
+        print(f"Correct answer was '{correct_answer}'.")
+        print(f"Let's try again, {name}!")
     elif user_answer == correct_answer:
         print('Correct!')
 

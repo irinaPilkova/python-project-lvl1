@@ -2,7 +2,7 @@
 
 
 def gcd_question(num_1, num_2):
-    question = f'Question: {num_1}  {num_2}' + "\n"
+    question = f'Question: {num_1} {num_2}' + "\n"
     """This function defines the question for the game."""
     return question
 

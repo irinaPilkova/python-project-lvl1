@@ -14,4 +14,6 @@ def is_prime(random_number):
             break
     else:
         correct_answer = "yes"
+    if random_number == 1:
+        correct_answer = "no"
     return correct_answer

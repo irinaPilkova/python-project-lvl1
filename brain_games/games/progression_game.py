@@ -10,14 +10,8 @@ def progres_question():
     i_replace = randint(1, 10)
     progression = [(i * num) for i in range(1, 11)]
     correct_answer = progression[i_replace]
-    progression[i_replace] = '..'
+    progression[i_replace]= '..'
+    progression = [str(a) for a in progression]
+    progression = " ".join(progression)
     question = f'Question: {progression}' + "\n"
     return question, str(correct_answer)
-
-
-def progres_answer(i_replace, progression):
-    """This function defines the correct answer for the game."""
-    i_replace = progres_question(i_replace)
-    progression = progres_question(progression)
-    correct_answer = progression[i_replace]
-    return correct_answer

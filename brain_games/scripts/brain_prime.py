@@ -7,7 +7,6 @@ from brain_games.logic.games_logic import brain_prime
 
 def game_result():
     brain_prime()
-    
 
 
 def main():

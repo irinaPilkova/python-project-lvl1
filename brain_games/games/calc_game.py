@@ -21,4 +21,3 @@ def calc_answer(operand, num_1, num_2):
     elif operand == '*':
         correct_answer = num_1 * num_2
     return str(correct_answer)
-

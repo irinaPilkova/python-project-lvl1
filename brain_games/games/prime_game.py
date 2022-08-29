@@ -2,7 +2,6 @@
 
 def prime_question(random_number):
     """This function defines the question for the game."""
-    print('Answer "yes" if given number is prime. Otherwise answer "no".')
     question = f'Question: {random_number}' + "\n"
     return question
 
@@ -15,5 +14,4 @@ def is_prime(random_number):
             break
     else:
         correct_answer = "yes"
-    print(random_number, correct_answer)
     return correct_answer

@@ -4,7 +4,6 @@
 from random import randint
 from random import choice
 import prompt
-import string
 from brain_games.cli import welcome_user
 from brain_games.games.even_game import even_question
 from brain_games.games.even_game import is_even
@@ -13,7 +12,6 @@ from brain_games.games.prime_game import is_prime
 from brain_games.games.calc_game import calc_question
 from brain_games.games.calc_game import calc_answer
 from brain_games.games.progression_game import progres_question
-from brain_games.games.progression_game import progres_answer
 from brain_games.games.gcd_game import gcd_question
 from brain_games.games.gcd_game import gcd_answer
 
@@ -47,12 +45,10 @@ def compare_answer(user_answer, correct_answer, name):
     """This function compares user and correct answer."""
     if user_answer != correct_answer:
         print(f" '{user_answer}' is wrong answer ;(. Correct answer was '{correct_answer}'.\n Let's try again, {name}!")
-
     elif user_answer == correct_answer:
         print('Correct!')
-        print(f" '{user_answer}' is right answer ;(. Correct answer was '{correct_answer}'.\n Let's try again, {name}!")
 
-        
+
 def brain_even():
     """This function starts game for brain even."""
     name = welcome_user()
@@ -63,7 +59,7 @@ def brain_even():
         question = even_question(random_number)
         user_answer = get_user_answer(question)
         correct_answer = is_even(random_number)
-        compare_answer(user_answer, correct_answer, name, random_number)
+        compare_answer(user_answer, correct_answer, name)
         counter += 1
         if user_answer != correct_answer:
             break
@@ -81,7 +77,7 @@ def brain_prime():
         question = prime_question(random_number)
         user_answer = get_user_answer(question)
         correct_answer = is_prime(random_number)
-        compare_answer(user_answer, correct_answer, name, random_number)
+        compare_answer(user_answer, correct_answer, name)
         counter += 1
         if user_answer != correct_answer:
             break
@@ -119,7 +115,6 @@ def progression_question():
     name = welcome_user()
     print('What number is missing in the progression?')
     global counter
-    
     while counter < winscore:
         question, correct_answer = progres_question()
         user_answer = get_user_answer(question)
@@ -129,8 +124,6 @@ def progression_question():
             break
         if counter == 3:
             print(f"Congratulations, {name}!")
-
-     
 
 
 def brain_gcd():
@@ -150,10 +143,3 @@ def brain_gcd():
             break
         if counter == 3:
             print(f"Congratulations, {name}!")
-    
-
-    
-
-
-
- 

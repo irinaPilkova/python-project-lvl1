@@ -12,7 +12,6 @@ def progres_question():
     correct_answer = progression[i_replace]
     progression[i_replace] = '..'
     question = f'Question: {progression}' + "\n"
-    print(correct_answer)
     return question, str(correct_answer)
 
 
@@ -21,5 +20,4 @@ def progres_answer(i_replace, progression):
     i_replace = progres_question(i_replace)
     progression = progres_question(progression)
     correct_answer = progression[i_replace]
-    
     return correct_answer

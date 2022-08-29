@@ -9,7 +9,6 @@ def game_calc():
     calculation_question()
 
 
-
 def main():
     greet()
     calculation_question()

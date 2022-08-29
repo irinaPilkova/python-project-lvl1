@@ -23,5 +23,3 @@ def gcd_answer(num_1, num_2):
             correct_answer = i
     print(correct_answer)
     return str(correct_answer)
-
-

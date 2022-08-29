@@ -7,7 +7,6 @@ from brain_games.logic.games_logic import brain_even
 
 def game_result():
     brain_even()
-    
 
 
 def main():

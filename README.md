@@ -10,3 +10,4 @@
 "https://asciinema.org/a/d0dvlwGrOfdL0PSEeN6PkIhHI"
 "https://asciinema.org/a/xVHx1mcqWvm5Rr985S4Oosmq0"
 "https://asciinema.org/a/NY5GqXFWPgsQ5GqbzWrtmrlJf"
+<a href="https://asciinema.org/a/NY5GqXFWPgsQ5GqbzWrtmrlJf" target="_blank"><img src="https://asciinema.org/a/NY5GqXFWPgsQ5GqbzWrtmrlJf.svg" /></a>

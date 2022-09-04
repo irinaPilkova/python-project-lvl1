@@ -1,10 +1,15 @@
 #!/usr/bin/env python3
 
 
-def gcd_question(num_1, num_2):
-    question = f'Question: {num_1} {num_2}' + "\n"
+from brain_games.logic.games_logic import create_number
+
+
+def gcd_question():
     """This function defines the question for the game."""
-    return question
+    num_1 = create_number()
+    num_2 = create_number()
+    question = f'Question: {num_1} {num_2}' + "\n"
+    return question, num_1, num_2
 
 
 def gcd_answer(num_1, num_2):

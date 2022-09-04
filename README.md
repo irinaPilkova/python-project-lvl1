@@ -1,3 +1,14 @@
+Welcome to the Brain Games!
+
+There are 5 games available. In order to play you should download the package and run the following specific command to each game:
+
+Game: "Is number even?" (make brain-even)
+Game: "Calculator" (make brain-calc)
+Game: "Greatest common divisior" (make brain-gcd)
+Game: "Arithmetic progression" (make brain-progression)
+Game: "Is number prime?" (make brain-prime)
+Run the games and follow the instructions!
+
 ### Hexlet tests and linter status:
 [![Actions Status](https://github.com/irinaPilkova/python-project-lvl1/workflows/hexlet-check/badge.svg)](https://github.com/irinaPilkova/python-project-lvl1/actions)
 

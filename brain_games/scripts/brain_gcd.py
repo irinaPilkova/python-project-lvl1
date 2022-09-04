@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 
-from brain_games.logic.games_logic import brain_gcd
+from brain_games.logic.games_engine import brain_gcd
 from brain_games.scripts.brain_games import greet
 
 

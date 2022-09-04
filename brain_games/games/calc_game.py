@@ -1,7 +1,15 @@
 #!/usr/bin/env python3
 
 
-def calc_question(num_1, num_2, operand):
+from brain_games.logic.games_logic import create_number
+from random import choice
+
+
+def calc_question():
+    num_1 = create_number()
+    num_2 = create_number()
+    operand_list = ['+']
+    operand = choice(operand_list)
     """This function defines the question for the game."""
     if operand == '+':
         question = f'Question: {num_1} + {num_2}' + "\n"
@@ -9,7 +17,7 @@ def calc_question(num_1, num_2, operand):
         question = f'Question: {num_1} - {num_2}' + "\n"
     elif operand == '*':
         question = f'Question: {num_1} * {num_2}' + "\n"
-    return question
+    return question, num_1, num_2, operand
 
 
 def calc_answer(operand, num_1, num_2):

@@ -1,10 +1,14 @@
 #!/usr/bin/env python3
 
 
-def even_question(random_number):
+from brain_games.logic.games_logic import create_number
+
+
+def even_question():
     """This function defines the question for the game."""
+    random_number = create_number()
     question = f'Question: {random_number}' + "\n"
-    return question
+    return question, random_number
 
 
 def is_even(random_number):

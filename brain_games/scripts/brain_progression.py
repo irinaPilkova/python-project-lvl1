@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 
-from brain_games.logic.games_logic import progression_question
+from brain_games.logic.games_engine import progression_question
 from brain_games.scripts.brain_games import greet
 
 

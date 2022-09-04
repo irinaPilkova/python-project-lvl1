@@ -2,7 +2,7 @@
 
 
 from brain_games.scripts.brain_games import greet
-from brain_games.logic.games_logic import calculation_question
+from brain_games.logic.games_engine import calculation_question
 
 
 def game_calc():

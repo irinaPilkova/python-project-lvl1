@@ -2,7 +2,7 @@
 
 
 from brain_games.scripts.brain_games import greet
-from brain_games.logic.games_logic import brain_prime
+from brain_games.logic.games_engine import brain_prime
 
 
 def game_result():

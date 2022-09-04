@@ -1,2 +1,4 @@
 # Игнорируется директория venv
 .venv
+dist
+__pycache__

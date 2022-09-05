@@ -7,11 +7,11 @@ pip install brain-games --user
 
 In order to play you should run the following specific command to each game:
 
-Game: "Is number even?" (make brain-even)
-Game: "Calculator" (make brain-calc)
-Game: "Greatest common divisior" (make brain-gcd)
-Game: "Arithmetic progression" (make brain-progression)
-Game: "Is number prime?" (make brain-prime)
+<li>Game: "Is number even?" (make brain-even)</li>
+<li>Game: "Calculator" (make brain-calc)</li>
+<li>Game: "Greatest common divisior" (make brain-gcd)</li>
+<li>Game: "Arithmetic progression" (make brain-progression)</li>
+<li>Game: "Is number prime?" (make brain-prime)</li>
 Run the games and follow the instructions!
 
 ### Hexlet tests and linter status:

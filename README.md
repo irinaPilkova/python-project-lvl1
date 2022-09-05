@@ -1,6 +1,11 @@
+### Project description
 Welcome to the Brain Games!
 
-There are 5 games available. In order to play you should download the package and run the following specific command to each game:
+There are 5 games available. 
+In order to install Brain Games you should download the package and run in your terminal:
+pip install brain-games --user
+
+In order to play you should run the following specific command to each game:
 
 Game: "Is number even?" (make brain-even)
 Game: "Calculator" (make brain-calc)

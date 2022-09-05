@@ -81,9 +81,9 @@ def calculation_question():
     print('What is the result of the expression?')
     global counter
     while counter < winscore:
-        question, operand, num_1, num_2 = calc_question()
+        question, num_1, num_2, operand = calc_question()
         user_answer = get_user_answer(question)
-        correct_answer = calc_answer(operand, num_1, num_2)
+        correct_answer = calc_answer(num_1, num_2, operand)
         compare_answer(user_answer, correct_answer, name)
         counter += 1
         end_game(counter, user_answer, correct_answer, name)

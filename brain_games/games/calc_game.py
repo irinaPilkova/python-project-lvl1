@@ -20,12 +20,13 @@ def calc_question():
     return question, num_1, num_2, operand
 
 
-def calc_answer(operand, num_1, num_2):
+def calc_answer(num_1, num_2, operand):
     """This function defines the correct answer for the game."""
+    correct_answer = 0
     if operand == '+':
-        correct_answer = str(num_1 + num_2)
+        correct_answer = num_1 + num_2
     elif operand == '-':
         correct_answer = num_1 - num_2
     elif operand == '*':
         correct_answer = num_1 * num_2
-    return correct_answer
+    return str(correct_answer)

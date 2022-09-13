@@ -9,8 +9,13 @@ counter = 0
 winscore = 3
 
 
+def greet():
+    """This function welcomes User to the Game."""
+    print('Welcome to the Brain Games!')
+
+
 def run_game(game):
-    print("Welcome to the Brain Games!")
+    greet()
     name = welcome_user()
     print(game.DESCRIPTION)
     global counter

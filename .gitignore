@@ -1,5 +1,4 @@
 # Игнорируется директория venv
 .venv
 dist
-__pycache__
-brain_games/games/__pycache__
+**/__pycache__

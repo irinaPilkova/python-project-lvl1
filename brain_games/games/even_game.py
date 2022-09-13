@@ -1,20 +1,22 @@
 #!/usr/bin/env python3
 
 
-from brain_games.logic.games_logic import create_number
+from random import randint
 
 
-def even_question():
+lower_limit = 1
+upper_limit = 100
+
+
+DESCRIPTION = 'Answer "yes" if the number is even, otherwise answer "no".'
+
+
+def generate_question_answer():
     """This function defines the question for the game."""
-    random_number = create_number()
+    random_number = randint(lower_limit, upper_limit)
     question = f'Question: {random_number}' + "\n"
-    return question, random_number
-
-
-def is_even(random_number):
-    """This function returns if the random number is even or not."""
     if random_number % 2 == 0:
         correct_answer = "yes"
     else:
         correct_answer = "no"
-    return correct_answer
+    return question, correct_answer

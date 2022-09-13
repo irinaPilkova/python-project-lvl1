@@ -4,7 +4,10 @@
 from random import randint
 
 
-def progres_question():
+DESCRIPTION = 'What number is missing in the progression?'
+
+
+def generate_question_answer():
     """This function defines the question for the game."""
     num = randint(2, 6)
     i_replace = randint(2, 9)

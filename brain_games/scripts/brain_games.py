@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 
-from brain_games.logic.games_engine import greet
+from brain_games.games_engine import greet
 from brain_games.cli import welcome_user
 
 

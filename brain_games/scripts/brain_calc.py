@@ -1,16 +1,15 @@
 #!/usr/bin/env python3
 
 
-from brain_games.scripts.brain_games import greet
-from brain_games.logic.games_engine import calculation_question
+from brain_games.games_engine import run_game
+from brain_games.games import calc_game
 
 
-def game_calc():
-    calculation_question()
+def play_game():
+    run_game(calc_game)
 
 
 def main():
-    greet()
-    calculation_question()
+    play_game()
     if __name__ == '__main__':
         main()

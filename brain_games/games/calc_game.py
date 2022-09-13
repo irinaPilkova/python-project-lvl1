@@ -1,32 +1,28 @@
 #!/usr/bin/env python3
 
 
-from brain_games.logic.games_logic import create_number
+from random import randint
 from random import choice
 
 
-def calc_question():
+DESCRIPTION = 'What is the result of the expression?'
+
+
+lower_limit = 1
+upper_limit = 100
+operand_list = ['+', '-', '*']
+
+
+def generate_question_answer():
     """This function defines the question for the game."""
-    num_1 = create_number()
-    num_2 = create_number()
-    operand_list = ['+', '-', '*']
+    num_1 = randint(lower_limit, upper_limit)
+    num_2 = randint(lower_limit, upper_limit)
     operand = choice(operand_list)
-    if operand == '+':
-        question = f'Question: {num_1} + {num_2}' + "\n"
-    elif operand == '-':
-        question = f'Question: {num_1} - {num_2}' + "\n"
-    elif operand == '*':
-        question = f'Question: {num_1} * {num_2}' + "\n"
-    return question, num_1, num_2, operand
-
-
-def calc_answer(num_1, num_2, operand):
-    """This function defines the correct answer for the game."""
-    correct_answer = 0
+    question = f'Question: {num_1} {operand} {num_2}' + "\n"
     if operand == '+':
         correct_answer = num_1 + num_2
     elif operand == '-':
         correct_answer = num_1 - num_2
     elif operand == '*':
         correct_answer = num_1 * num_2
-    return str(correct_answer)
+    return question, str(correct_answer)

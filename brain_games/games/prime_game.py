@@ -1,25 +1,27 @@
-#!/usr/bin/env python3
-
-
 from random import randint
 
-lower_limit = 1
-upper_limit = 100
+LOWER_LIMIT = 1
+UPPER_LIMIT = 100
 
 
 DESCRIPTION = 'Answer "yes" if given number is prime. Otherwise answer "no".'
 
 
-def generate_question_answer():
-    """This function defines the question for the game."""
-    random_number = randint(lower_limit, upper_limit)
-    question = f'Question: {random_number}' + "\n"
+def is_prime(random_number):
     for i in range(2, random_number):
         if random_number % i == 0:
-            correct_answer = "no"
+            is_prime = False
             break
     else:
-        correct_answer = "yes"
+        is_prime = True
     if random_number == 1:
-        correct_answer = "no"
+        is_prime = False
+    return is_prime
+
+
+def generate_question_answer():
+    """This function defines the question for the game."""
+    random_number = randint(LOWER_LIMIT, UPPER_LIMIT)
+    question = f'Question: {random_number}' + "\n"
+    correct_answer = "yes" if is_prime(random_number) is True else "no"
     return question, correct_answer

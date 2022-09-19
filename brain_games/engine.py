@@ -1,25 +1,15 @@
-#!/usr/bin/env python3
-
-
 import prompt
 from brain_games.cli import welcome_user
 
 
-counter = 0
-winscore = 3
-
-
-def greet():
-    """This function welcomes User to the Game."""
-    print('Welcome to the Brain Games!')
+ROUNDS = 3
 
 
 def run_game(game):
-    greet()
+    print('Welcome to the Brain Games!')
     name = welcome_user()
     print(game.DESCRIPTION)
-    global counter
-    while counter < winscore:
+    for _ in range(ROUNDS):
         question, correct_answer = game.generate_question_answer()
         print(question, end='')
         user_answer = prompt.string('Your answer: ')
@@ -30,6 +20,5 @@ def run_game(game):
             break
         elif user_answer == correct_answer:
             print('Correct!')
-        counter += 1
-        if counter == 3:
+        if ROUNDS == 3:
             print(f"Congratulations, {name}!")
